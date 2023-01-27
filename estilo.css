@@ -1,0 +1,8 @@
+#contenedorCarrito {
+    border: 2px solid black;
+    height: 200px;
+}
+
+.itemCarrito * {
+    margin: 5px
+  }

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/df59baf6b8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./estilo.css">
+</head>
+<body>
+    <header>
+        <h1 id="titulo" class="titulo">Pet GardArya</h1>
+        <button id="boton-carrito"><i class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span></button>
+    </header>
+
+    <input id="inputFiltrar" placeholder="buscar por nombre o categoria">
+    <button id="buscar">Buscar</button>
+    <button id="verTodos">Ver Todos</button>
+    <div id="contenedorProductos"></div>
+    
+    <div>
+        <h3>Carrito</h3>
+        <div id="contenedorCarrito"></div>
+        <button id="finalizarCarrito">Finalizar Compra</button>
+        <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
