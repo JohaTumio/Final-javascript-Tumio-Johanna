@@ -1,24 +1,41 @@
 let catalogo = [
-    { id: 1, categoria: "camas, cama", cantidad: 1, precio: 9000, nombre: "cama moises", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgpOCexEOIgJq9IYGBFPTSgkETxpPPXz1HUg&usqp=CAU" },
-    { id: 2, categoria: "camas, cama", cantidad: 1, precio: 7800, nombre: "cama colchon impermeable", img: "https://http2.mlstatic.com/D_NQ_NP_601738-MLA48266739222_112021-O.webp" },
-    { id: 3, categoria: "camas,cama", cantidad: 1, precio: 8500, nombre: "cama moises mullida", img: "https://http2.mlstatic.com/D_NQ_NP_885248-MLA48241075480_112021-O.jpg" },
-    { id: 4, categoria: "comederos", cantidad: 1, precio: 4200, nombre: "comedero en altura", img: "https://http2.mlstatic.com/D_NQ_NP_672083-MLA46209835771_052021-O.webp" },
-    { id: 5, categoria: "comederos", cantidad: 1, precio: 3000, nombre: "comedero dispenser", img: "https://http2.mlstatic.com/D_NQ_NP_908077-MLA52448373372_112022-V.jpg" },
-    { id: 6, categoria: "comederos", cantidad: 1, precio: 800, nombre: "comedero acero inoxidable", img: "https://http2.mlstatic.com/D_NQ_NP_834336-MLA51521258426_092022-O.webp" },
-    { id: 7, categoria: "collares", cantidad: 1, precio: 1300, nombre: "collar regulable", img: "https://puppis.vteximg.com.br/arquivos/ids/189314-300-300/228998.jpg?v=637982461867100000" },
-    { id: 8, categoria: "collares", cantidad: 1, precio: 600, nombre: "collar con pañuelo", img: "https://http2.mlstatic.com/D_NQ_NP_727013-MLA43426246555_092020-O.webp" },
-    { id: 9, categoria: "collares", cantidad: 1, precio: 2230, nombre: "collar con hebilla", img: "https://http2.mlstatic.com/D_NQ_NP_915037-MLA52697434657_122022-O.webp" },
-    { id: 10, categoria: "juguetes", cantidad: 1, precio: 650, nombre: "hueso de plastico", img: "https://puppis.vteximg.com.br/arquivos/ids/186460-300-300/269252.jpg?v=637868476664200000" },
-    { id: 11, categoria: "juguetes", cantidad: 1, precio: 850, nombre: "soga", img: "https://http2.mlstatic.com/D_NQ_NP_658191-MLA31787987586_082019-O.jpg" },
-    { id: 12, categoria: "juguetes", cantidad: 1, precio: 700, nombre: "pelota", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREocA-2BhSXCA812y8jT_9UKUqNrIN7Gy6zg&usqp=CAU" },
+    { id: 1, categoria: "camas", precio: 9000, nombre: "cama moises", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgpOCexEOIgJq9IYGBFPTSgkETxpPPXz1HUg&usqp=CAU" },
+    { id: 2, categoria: "camas", precio: 7800, nombre: "cama impermeable", img: "https://http2.mlstatic.com/D_NQ_NP_601738-MLA48266739222_112021-O.webp" },
+    { id: 3, categoria: "camas", precio: 8500, nombre: "cama moises mullida", img: "https://http2.mlstatic.com/D_NQ_NP_885248-MLA48241075480_112021-O.jpg" },
+    { id: 4, categoria: "comederos", precio: 4200, nombre: "comedero en altura", img: "https://http2.mlstatic.com/D_NQ_NP_672083-MLA46209835771_052021-O.webp" },
+    { id: 5, categoria: "comederos", precio: 3000, nombre: "comedero dispenser", img: "https://http2.mlstatic.com/D_NQ_NP_908077-MLA52448373372_112022-V.jpg" },
+    { id: 6, categoria: "comederos", precio: 800, nombre: "comedero acero inox.", img: "https://http2.mlstatic.com/D_NQ_NP_834336-MLA51521258426_092022-O.webp" },
+    { id: 7, categoria: "collares", precio: 1300, nombre: "collar regulable", img: "https://puppis.vteximg.com.br/arquivos/ids/189314-300-300/228998.jpg?v=637982461867100000" },
+    { id: 8, categoria: "collares", precio: 600, nombre: "collar con pañuelo", img: "https://http2.mlstatic.com/D_NQ_NP_727013-MLA43426246555_092020-O.webp" },
+    { id: 9, categoria: "collares", precio: 2230, nombre: "collar con hebilla", img: "https://http2.mlstatic.com/D_NQ_NP_915037-MLA52697434657_122022-O.webp" },
+    { id: 10, categoria: "juguetes", precio: 650, nombre: "hueso de plastico", img: "https://puppis.vteximg.com.br/arquivos/ids/186460-300-300/269252.jpg?v=637868476664200000" },
+    { id: 11, categoria: "juguetes", precio: 850, nombre: "soga", img: "https://http2.mlstatic.com/D_NQ_NP_658191-MLA31787987586_082019-O.jpg" },
+    { id: 12, categoria: "juguetes", precio: 700, nombre: "pelota", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREocA-2BhSXCA812y8jT_9UKUqNrIN7Gy6zg&usqp=CAU" },
 ]
 
 let contenedorProductos = document.getElementById("contenedorProductos")
 let contenedorCarrito = document.getElementById("contenedorCarrito")
 
+let ocultarCarrito = document.getElementById("ocultarCarrito")
+let bienvenida = document.getElementById("bienvenida")
+let ocultarProductos = document.getElementById("productos")
+let ocultarNav = document.getElementById("lista_nav")
+let verCarrito = document.getElementById("verCarrito")
+verCarrito.addEventListener("click", mostrarCarrito)
+
+
+function mostrarCarrito() {
+    contenedorProductos.classList.toggle("ocultar")
+    ocultarCarrito.classList.toggle("ocultar")
+    bienvenida.classList.toggle("ocultar")
+    ocultarProductos.classList.toggle("ocultar")
+    ocultarNav.classList.toggle("ocultar")
+}
+
 renderizarProductos(catalogo)
 
 let verTodos = document.getElementById("verTodos")
+verTodos.classList.add("botonesFiltro")
 verTodos.addEventListener("click", verTodosProductos)
 
 function verTodosProductos() {
@@ -27,25 +44,28 @@ function verTodosProductos() {
 
 function renderizarProductos(arr) {
     contenedorProductos.innerHTML = ""
-    arr.forEach(({nombre, precio, img, id}) => {
+    arr.forEach(({ nombre, precio, img, id }) => {
         let tarjetaProducto = document.createElement("article")
-        //tarjetaProducto.classList.add("producto")
+        tarjetaProducto.classList.add("tarjetasProducto")
         tarjetaProducto.innerHTML = `
         <h3>${nombre}</h3>
         <p>$${precio}</p>
         <img src=${img} />
         <button id="agregar${id}" >Agregar al carrito</button>
         `
-
         contenedorProductos.append(tarjetaProducto)
-
         let boton = document.getElementById(`agregar${id}`)
         boton.addEventListener("click", () => { agregarAlCarrito(id) })
+        boton.classList.add("botonAgregarCarrito")
     })
+
 }
 
 let inputFiltrar = document.getElementById("inputFiltrar")
+inputFiltrar.classList.add("inputFiltrar")
+
 let botonBuscar = document.getElementById("buscar")
+botonBuscar.classList.add("botonesFiltro")
 botonBuscar.addEventListener("click", filtrar)
 
 function filtrar() {
@@ -71,30 +91,30 @@ function agregarAlCarrito(prodId) {
         })
     } else {
         let item = catalogo.find((producto) => producto.id === prodId)
+        item.cantidad = 1
         carrito.push(item)
     }
     localStorage.setItem("carrito", JSON.stringify(carrito))
     actualizarCarrito()
+    comprarEliminarToasti("Producto Agregado")
     console.log(carrito)
 }
 
 function actualizarCarrito() {
     contenedorCarrito.innerText = ""
-    carrito.forEach(({nombre, precio, cantidad, id}) => {
+    carrito.forEach(({ nombre, precio, cantidad, id }) => {
         let tarjetaProducto = document.createElement("div")
         tarjetaProducto.classList.add("itemCarrito")
         tarjetaProducto.innerHTML = `
         <h3>${nombre}</h3>
         <p>Precio:$ ${precio}</p>
-        <p>Cantidad: <span id="cantidad">${cantidad}</span></p>
-        <button onclick="eliminarDelCarrito(${id})" class= "boton-eliminar">Eliminar</button>
+        <p class= "cantidadCarrito">Cantidad: <span id="cantidad">${cantidad}</span></p>
+        <button onclick="eliminarDelCarrito(${id})" class= "botonEliminarCarrito">Eliminar</button>
         `
         contenedorCarrito.appendChild(tarjetaProducto)
-
     })
     contadorCarrito.innerText = carrito.length
     precioTotal.innerText = carrito.reduce((acumulador, producto) => acumulador + producto.cantidad * producto.precio, 0)
-
 }
 
 function eliminarDelCarrito(prodId) {
@@ -102,7 +122,8 @@ function eliminarDelCarrito(prodId) {
     let indice = carrito.indexOf(item)
     carrito.splice(indice, 1)
     actualizarCarrito()
-    console.log(carrito)
+    localStorage.setItem("carrito", JSON.stringify(carrito))
+    comprarEliminarToasti("Producto Eliminado") 
 }
 
 let botonVaciar = document.getElementById("finalizarCarrito")
@@ -112,8 +133,26 @@ function finalizarCompra() {
     localStorage.removeItem("carrito")
     carrito = []
     actualizarCarrito()
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Gracias por su compra',
+        showConfirmButton: false,
+        timer: 1500,
+        color: '#f1bc0b'
+    })
     console.log(carrito)
 }
-
+function comprarEliminarToasti(text) {
+    Toastify({
+        text: text,
+        duration: 1500,
+        gravity: "bottom",
+        position: "right",
+        style: {
+            background: "linear-gradient(to right, #f1bc0b, #96c93d)",
+        },
+    }).showToast();
+}
 
 

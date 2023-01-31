@@ -4,28 +4,81 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://kit.fontawesome.com/df59baf6b8.js" crossorigin="anonymous"></script>
+    <title>Pet Garden</title>
+    <!-- Iconos -->
+    <script src="https://kit.fontawesome.com/b32685bff2.js" crossorigin="anonymous"></script>
+    <!-- Iconos -->
+    <!--     <script src="https://kit.fontawesome.com/df59baf6b8.js" crossorigin="anonymous"></script> -->
+    <!-- toastify -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!-- CSS -->
     <link rel="stylesheet" href="./estilo.css">
 </head>
+
 <body>
     <header>
-        <h1 id="titulo" class="titulo">Pet GardArya</h1>
-        <button id="boton-carrito"><i class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span></button>
+        <div class="contenedor_logo_titulo">
+            <a href="./index.html">
+                <img class="logo" src="./img/Icono-huella.png" alt="icono huella de perro">
+            </a>
+            <div>
+                <h1>Pet Garden</h1>
+            </div>
+        </div>
+        <nav class="contenedor_lista_nav" id="lista_nav">
+            <ul>
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="#productos">Tienda</a></li>
+            </ul>
+        </nav>
+        <div class="contenedor_boton_carrito">
+            <button id="verCarrito" class="boton_carrito"><i class="fas fa-shopping-cart"></i><span
+                    id="contadorCarrito">0</span></button>
+        </div>
     </header>
-
-    <input id="inputFiltrar" placeholder="buscar por nombre o categoria">
-    <button id="buscar">Buscar</button>
-    <button id="verTodos">Ver Todos</button>
-    <div id="contenedorProductos"></div>
-    
-    <div>
-        <h3>Carrito</h3>
-        <div id="contenedorCarrito"></div>
-        <button id="finalizarCarrito">Finalizar Compra</button>
-        <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
+    <section id="bienvenida">
+        <p id="p_bienvenida">
+            ¡Bienvenido a la web donde encontrarás todo lo que necesites para tu mascota! ¡no dudes en consultar por mas
+            modelos o colores!
+        </p>
+        <img id="img_local" class="img_local" src="./img/productos.jpg" alt="productos para mascotas">
+    </section>
+    <main id="productos">
+        <h2>Estos son algunos productos que puedes elegir:</h2>
+        <div class="contenedor_filtro">
+            <input id="inputFiltrar" placeholder="Ingrese nombre o categoria">
+            <div class="contenedor_botones_filtro">
+                <button id="buscar">Buscar</button>
+                <button id="verTodos">Ver Todos</button>
+            </div>
+        </div>
+        <div id="contenedorProductos"></div>
+    </main>
+    <div id="ocultarCarrito" class="ocultar">
+        <h3 class="titulo_carrito">Tus productos en el carrito</h3>
+        <div class="carrito">
+            <div id="contenedorCarrito"></div>
+            <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
+            <button class="finalizarCompra" id="finalizarCarrito" data-text="Awesome" class="button">
+                <span class="actual-text">&nbsp;Comprar&nbsp;</span>
+                <span class="hover-text" aria-hidden="true">&nbsp;Comprar&nbsp;</span>
+            </button>
+        </div>
     </div>
-
+    <footer>
+        <p class="font_initial"><i class="fa-brands fa-facebook"></i> Ubicación: Manuel Ugarte 3148, CABA</p>
+        <p class="font_initial"><i class="fa-sharp fa-solid fa-phone"></i> Teléfono: 11-1234-4321</p>
+        <div class="contenedor_redes">
+            <ul class="lista_redes">
+                <li><img class="red_social" src="./img/Instagram.webp" alt="instagram">
+                </li>
+                <li><img class="red_social" src="./img/facebook.webp" alt="facebook">
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="./script.js"></script>
 </body>
 </html>
