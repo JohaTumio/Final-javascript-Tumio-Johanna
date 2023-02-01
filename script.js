@@ -97,7 +97,6 @@ function agregarAlCarrito(prodId) {
     localStorage.setItem("carrito", JSON.stringify(carrito))
     actualizarCarrito()
     comprarEliminarToasti("Producto Agregado")
-    console.log(carrito)
 }
 
 function actualizarCarrito() {
@@ -141,7 +140,6 @@ function finalizarCompra() {
         timer: 1500,
         color: '#f1bc0b'
     })
-    console.log(carrito)
 }
 function comprarEliminarToasti(text) {
     Toastify({
