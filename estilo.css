@@ -34,6 +34,15 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
+    color:#924803;
+    border: solid 2px #f29429f0;
+    border-radius: 30% 30%;
+    padding: 0.7rem;
+}
+nav ul li a:hover{
+    transition: all 0.8s;
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
 }
 
 h1 {
@@ -179,7 +188,6 @@ main h2 {
     justify-content: space-around;
     margin: 5rem 0rem;
     justify-items: center;
-    /*     background-color: bisque; */
     background-image: url(https://i.pinimg.com/originals/df/4f/a9/df4fa94f3a08f1f571b5c684db8185ea.jpg);
     opacity: value;
     background-repeat: no-repeat;
@@ -191,7 +199,7 @@ main h2 {
 }
 
 .botonAgregarCarrito,
-.botonEliminarCarrito {
+.botonEliminarCarrito, .btnAumRestCant {
     font-family: monospace;
     background-color: #f3f7fe;
     color: #d3a117;
@@ -203,7 +211,7 @@ main h2 {
     cursor: pointer;
 }
 
-#contenedorProductos article .botonAgregarCarrito:hover {
+#contenedorProductos article .botonAgregarCarrito:hover, .botonEliminarCarrito:hover, .btnAumRestCant:hover {
     background-color: #f6b53b;
     box-shadow: 0 0 0 5px #f6603b5f;
     color: #fff;
@@ -249,15 +257,28 @@ main h2 {
     text-align: center;
 }
 
+#contenedorCarrito .parrafoCarVacio {
+    font-size: 3rem;
+    animation: scale-up-center 0.9s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate;
+}
+@keyframes scale-up-center {
+    0% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 .itemCarrito {
     height: max-content;
     width: 50rem;
     border-bottom: #212121 0.2rem solid;
     padding: 0.9rem;
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr 1fr;
+    grid-template-columns: 2fr 2fr 1fr 2fr 1fr 2fr 2fr;
     grid-template-rows: auto;
     align-items: center;
+    justify-items: center;
 }
 
 #contenedorCarrito {
@@ -268,7 +289,8 @@ main h2 {
     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     display: flex;
     flex-wrap: wrap;
-    align-content: stretch;
+    align-content: center;
+    justify-content: center;
     margin: 2rem;
     padding: 2rem;
 }
@@ -288,12 +310,6 @@ main h2 {
 
 .precioProducto {
     font-size: 2rem;
-}
-
-.botonEliminarCarrito:hover {
-    background-color: #f6b53b;
-    box-shadow: 0 0 0 5px #f6603b5f;
-    color: #fff;
 }
 
 /* boton finalizar compra */
@@ -338,6 +354,11 @@ main h2 {
     filter: drop-shadow(0 0 23px var(--animation-color))
 }
 
+.btnAumRestCant{
+    width: 3rem;
+    height: 3rem;
+}
+
 /* footer */
 footer {
     background-color: #ffc87f;
@@ -363,12 +384,13 @@ footer div a {
 }
 
 .lista_redes {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    align-items: center;
+    display:grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: auto;
+    column-gap: 2rem;
     list-style: none;
 }
+
 .content {
     width: 100%;
     height: 400px;
@@ -376,4 +398,25 @@ footer div a {
 
 .footer {
     width: 100%;
+}
+.toast-message{
+    font-size: 15px;
+}
+/* Sweet Alert */
+.pSweet{
+    font-size: 2rem;
+}
+.tituloSweet{
+    font-size: 3rem;
+}
+.footerSweet{
+    font-size: 2rem;
+}
+.btnConfirmar{
+    font-size: 1.5rem;
+}
+.tamañoAlertSweet{
+    height: 90% !important;
+    border-radius: 5% !important;
+    border: solid 3px rgba(248, 227, 133, 0.671) !important;
 }
