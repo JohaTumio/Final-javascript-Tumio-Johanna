@@ -4,7 +4,8 @@
         "categoria": "camas",
         "precio": 9000,
         "nombre": "cama moises",
-        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgpOCexEOIgJq9IYGBFPTSgkETxpPPXz1HUg&usqp=CAU"
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgpOCexEOIgJq9IYGBFPTSgkETxpPPXz1HUg&usqp=CAU",
+        "cantidad": 1
     },
     {
         "id": 2,

@@ -12,6 +12,15 @@
     { id: 11, categoria: "juguetes", precio: 850, nombre: "soga", img: "https://http2.mlstatic.com/D_NQ_NP_658191-MLA31787987586_082019-O.jpg" },
     { id: 12, categoria: "juguetes", precio: 700, nombre: "pelota", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREocA-2BhSXCA812y8jT_9UKUqNrIN7Gy6zg&usqp=CAU" },
 ] */
+
+/* async function pedirInfo() {
+    const resp = await fetch("./catalogo.json")
+    const productos = await resp.json()
+    miPrograma(productos)
+  }
+  
+  pedirInfo() */
+
 fetch("./catalogo.json")
     .then(resp => resp.json())
     .then(productos=> miPrograma(productos))
@@ -119,20 +128,39 @@ function miPrograma(catalogo) {
             tarjetaProducto.innerHTML = `
         <h3>${nombre}</h3>
         <p>Precio:<br>$${precio}</p>
-        <button onclick="restarCant(${id})" class= "btnAumRestCant">-</button>
-        <p class= "cantidadCarrito">Cantidad: <span id="cantidad">${cantidad}</span></p>
-        <button onclick="aumentarCant(${id})" class= "btnAumRestCant">+</button>
+        <button id=restarCant${id} class= "btnAumRestCant">-</button>
+        <p class= "cantidadCarrito">Cantidad: ${cantidad}</p>
+        <button id=aumentarCant${id} class= "btnAumRestCant">+</button>
         <p>SubTotal: $${(cantidad * precio)}</p>
-        <button onclick="eliminarDelCarrito(${id})" class= "botonEliminarCarrito">Eliminar</button>
+        <button id=eliminar${id} class= "botonEliminarCarrito">Eliminar</button>
         `
             contenedorCarrito.appendChild(tarjetaProducto)
+            let botonEliminar = document.getElementById("eliminar" + id)
+            botonEliminar.addEventListener("click", eliminarDelCarrito)
+
+            let btnRestarCant = document.getElementById("restarCant" + id)
+            btnRestarCant.addEventListener("click", restarCant)
+
+            let btnAumentarCant = document.getElementById("aumentarCant" + id)
+            btnAumentarCant = addEventListener("click", aumentarCant)
+
         })
         carritoVacio()
         contadorCarrito.innerText = carrito.length
         precioTotal.innerText = carrito.reduce((acumulador, producto) => acumulador + producto.cantidad * producto.precio, 0)
     }
 
-    function aumentarCant(prodId) {
+/*     function aumentarCant(prodId) {
+        let item = carrito.find(producto => producto.id === Number(prodId))
+        let indice = carrito.indexOf(item)
+        carrito[indice].cantidad++
+        actualizarCarrito()
+        localStorage.setItem("carrito", JSON.stringify(carrito))
+        agreElimToasti("Cantidad actualizada")
+    } */
+
+    function aumentarCant(e) {
+        prodId = e.target.id.substring(12)
         let item = carrito.find(producto => producto.id === Number(prodId))
         let indice = carrito.indexOf(item)
         carrito[indice].cantidad++
@@ -141,7 +169,21 @@ function miPrograma(catalogo) {
         agreElimToasti("Cantidad actualizada")
     }
 
-    function restarCant(prodId) {
+/*     function restarCant(prodId) {
+        let item = carrito.find(producto => producto.id === Number(prodId))
+        let indice = carrito.indexOf(item)
+        if (carrito[indice].cantidad > 1) {
+            carrito[indice].cantidad--
+            agreElimToasti("Cantidad actualizada")
+        } else if (carrito[indice].cantidad == 1) {
+            agreElimToasti("Elimine el producto")
+        }
+        actualizarCarrito()
+        localStorage.setItem("carrito", JSON.stringify(carrito))
+    } */
+
+    function restarCant(e) {
+        let prodId = e.target.id.substring(10)
         let item = carrito.find(producto => producto.id === Number(prodId))
         let indice = carrito.indexOf(item)
         if (carrito[indice].cantidad > 1) {
@@ -154,7 +196,18 @@ function miPrograma(catalogo) {
         localStorage.setItem("carrito", JSON.stringify(carrito))
     }
 
-    function eliminarDelCarrito(prodId) {
+/*     function eliminarDelCarrito(prodId) {
+        let item = carrito.find(producto => producto.id === prodId)
+        let indice = carrito.indexOf(item)
+        carrito.splice(indice, 1)
+        actualizarCarrito()
+        localStorage.setItem("carrito", JSON.stringify(carrito))
+        agreElimToasti("Producto Eliminado")
+    } */
+
+    function eliminarDelCarrito(e) {
+        let prodId = e.target.id.substring(8)
+        console.log(prodId)
         let item = carrito.find(producto => producto.id === prodId)
         let indice = carrito.indexOf(item)
         carrito.splice(indice, 1)
