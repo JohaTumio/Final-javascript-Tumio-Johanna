@@ -1,29 +1,6 @@
-/* let catalogo = [
-    { id: 1, categoria: "camas", precio: 9000, nombre: "cama moises", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgpOCexEOIgJq9IYGBFPTSgkETxpPPXz1HUg&usqp=CAU" },
-    { id: 2, categoria: "camas", precio: 7800, nombre: "cama anti desgarro", img: "https://http2.mlstatic.com/D_NQ_NP_601738-MLA48266739222_112021-O.webp" },
-    { id: 3, categoria: "camas", precio: 8500, nombre: "cama mullida", img: "https://http2.mlstatic.com/D_NQ_NP_885248-MLA48241075480_112021-O.jpg" },
-    { id: 4, categoria: "comederos", precio: 4200, nombre: "comedero en altura", img: "https://http2.mlstatic.com/D_NQ_NP_672083-MLA46209835771_052021-O.webp" },
-    { id: 5, categoria: "comederos", precio: 3000, nombre: "comedero dispenser", img: "https://http2.mlstatic.com/D_NQ_NP_908077-MLA52448373372_112022-V.jpg" },
-    { id: 6, categoria: "comederos", precio: 800, nombre: "comedero acero", img: "https://http2.mlstatic.com/D_NQ_NP_834336-MLA51521258426_092022-O.webp" },
-    { id: 7, categoria: "collares", precio: 1300, nombre: "collar regulable", img: "https://puppis.vteximg.com.br/arquivos/ids/189314-300-300/228998.jpg?v=637982461867100000" },
-    { id: 8, categoria: "collares", precio: 600, nombre: "collar con pañuelo", img: "https://http2.mlstatic.com/D_NQ_NP_727013-MLA43426246555_092020-O.webp" },
-    { id: 9, categoria: "collares", precio: 2230, nombre: "collar con hebilla", img: "https://http2.mlstatic.com/D_NQ_NP_915037-MLA52697434657_122022-O.webp" },
-    { id: 10, categoria: "juguetes", precio: 650, nombre: "hueso de plastico", img: "https://puppis.vteximg.com.br/arquivos/ids/186460-300-300/269252.jpg?v=637868476664200000" },
-    { id: 11, categoria: "juguetes", precio: 850, nombre: "soga", img: "https://http2.mlstatic.com/D_NQ_NP_658191-MLA31787987586_082019-O.jpg" },
-    { id: 12, categoria: "juguetes", precio: 700, nombre: "pelota", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREocA-2BhSXCA812y8jT_9UKUqNrIN7Gy6zg&usqp=CAU" },
-] */
-
-/* async function pedirInfo() {
-    const resp = await fetch("./catalogo.json")
-    const productos = await resp.json()
-    miPrograma(productos)
-  }
-  
-  pedirInfo() */
-
 fetch("./catalogo.json")
     .then(resp => resp.json())
-    .then(productos=> miPrograma(productos))
+    .then(productos => miPrograma(productos))
     .catch(error => console.log(error))
 
 function miPrograma(catalogo) {
@@ -34,6 +11,7 @@ function miPrograma(catalogo) {
     let bienvenida = document.getElementById("bienvenida")
     let ocultarProductos = document.getElementById("productos")
     let ocultarNav = document.getElementById("lista_nav")
+    let ocultarFormulario = document.getElementById("contacto")
     let verCarrito = document.getElementById("verCarrito")
     verCarrito.addEventListener("click", mostrarCarrito)
 
@@ -43,6 +21,7 @@ function miPrograma(catalogo) {
         bienvenida.classList.toggle("ocultar")
         ocultarProductos.classList.toggle("ocultar")
         ocultarNav.classList.toggle("ocultar")
+        ocultarFormulario.classList.toggle("ocultar")
     }
 
     renderizarProductos(catalogo)
@@ -64,7 +43,7 @@ function miPrograma(catalogo) {
         <h3>${nombre}</h3>
         <p>$${precio}</p>
         <img src=${img} />
-        <button id="agregar${id}" >Agregar al carrito</button>
+        <button id="agregar${id}">Agregar al carrito</button>
         `
             contenedorProductos.append(tarjetaProducto)
             let boton = document.getElementById(`agregar${id}`)
@@ -135,29 +114,20 @@ function miPrograma(catalogo) {
         <button id=eliminar${id} class= "botonEliminarCarrito">Eliminar</button>
         `
             contenedorCarrito.appendChild(tarjetaProducto)
-            let botonEliminar = document.getElementById("eliminar" + id)
-            botonEliminar.addEventListener("click", eliminarDelCarrito)
+            let btnEliminar = document.getElementById("eliminar" + id)
+            btnEliminar.addEventListener("click", eliminarDelCarrito)
 
             let btnRestarCant = document.getElementById("restarCant" + id)
             btnRestarCant.addEventListener("click", restarCant)
 
             let btnAumentarCant = document.getElementById("aumentarCant" + id)
-            btnAumentarCant = addEventListener("click", aumentarCant)
+            btnAumentarCant.addEventListener("click", aumentarCant)
 
         })
         carritoVacio()
         contadorCarrito.innerText = carrito.length
         precioTotal.innerText = carrito.reduce((acumulador, producto) => acumulador + producto.cantidad * producto.precio, 0)
     }
-
-/*     function aumentarCant(prodId) {
-        let item = carrito.find(producto => producto.id === Number(prodId))
-        let indice = carrito.indexOf(item)
-        carrito[indice].cantidad++
-        actualizarCarrito()
-        localStorage.setItem("carrito", JSON.stringify(carrito))
-        agreElimToasti("Cantidad actualizada")
-    } */
 
     function aumentarCant(e) {
         prodId = e.target.id.substring(12)
@@ -168,19 +138,6 @@ function miPrograma(catalogo) {
         localStorage.setItem("carrito", JSON.stringify(carrito))
         agreElimToasti("Cantidad actualizada")
     }
-
-/*     function restarCant(prodId) {
-        let item = carrito.find(producto => producto.id === Number(prodId))
-        let indice = carrito.indexOf(item)
-        if (carrito[indice].cantidad > 1) {
-            carrito[indice].cantidad--
-            agreElimToasti("Cantidad actualizada")
-        } else if (carrito[indice].cantidad == 1) {
-            agreElimToasti("Elimine el producto")
-        }
-        actualizarCarrito()
-        localStorage.setItem("carrito", JSON.stringify(carrito))
-    } */
 
     function restarCant(e) {
         let prodId = e.target.id.substring(10)
@@ -196,19 +153,9 @@ function miPrograma(catalogo) {
         localStorage.setItem("carrito", JSON.stringify(carrito))
     }
 
-/*     function eliminarDelCarrito(prodId) {
-        let item = carrito.find(producto => producto.id === prodId)
-        let indice = carrito.indexOf(item)
-        carrito.splice(indice, 1)
-        actualizarCarrito()
-        localStorage.setItem("carrito", JSON.stringify(carrito))
-        agreElimToasti("Producto Eliminado")
-    } */
-
     function eliminarDelCarrito(e) {
         let prodId = e.target.id.substring(8)
-        console.log(prodId)
-        let item = carrito.find(producto => producto.id === prodId)
+        let item = carrito.find((producto) => producto.id === parseInt(prodId))
         let indice = carrito.indexOf(item)
         carrito.splice(indice, 1)
         actualizarCarrito()
@@ -224,8 +171,7 @@ function miPrograma(catalogo) {
         carrito = []
         actualizarCarrito()
         Swal.fire({
-            html: `<h2 class= "tituloSweet">¡Compra realizada con éxito!</h2>
-        `,
+            html: `<h2 class= "tituloSweet">¡Compra realizada con éxito!</h2>`,
             footer: '<span class= "footerSweet">Su compra se guardadó con el id <strong>12321312</strong></span>',
             icon: 'success',
             position: 'center',
@@ -253,4 +199,45 @@ function miPrograma(catalogo) {
             className: "toast-message"
         }).showToast();
     }
+
+    let btnEnviarFormulario = document.getElementById("btnEnviarForm")
+    btnEnviarFormulario.addEventListener("click", () => {
+        let nombre = document.getElementById("nombre").value
+        let telefono = document.getElementById("telefono").value
+        let email = document.getElementById("mail").value
+        let mensaje = document.getElementById("msg").value
+        
+        if (nombre == "" || telefono == "" || email == "" || mensaje == "") {
+            Swal.fire({
+                icon: 'error',
+                html: `
+                <h2 class= "tituloSweet">¡Hubo un error!</h2>
+                <br>
+                <p class= "pFormulario">Debes completar todos los campos</p>`,
+                color: '#f1bc0b',
+                timer: 5000,
+                timerProgressBar: true,
+                showConfirmButton:false,
+                customClass: {
+                    popup: 'tamañoAlertSweet',
+                }
+            })
+        } else {
+            Swal.fire({
+                icon: 'success',
+                html: `
+                <h2 class= "tituloSweet">¡Completado!</h2>
+                <br>
+                <p class= "pFormulario">Gracias por contactarse con nosotros ${nombre} en breve le responderemos a su correo ${email}</p>`,
+                color: '#f1bc0b',
+                timer: 5000,
+                timerProgressBar: true,
+                showConfirmButton:false,
+                customClass: {
+                    popup: 'tamañoAlertSweet',
+                }
+            })
+        }
+    })
 }
+

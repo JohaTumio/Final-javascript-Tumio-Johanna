@@ -2,65 +2,60 @@
     margin: 0;
     padding: 0;
 }
-
 html {
     font-size: 62.5%;
+    font-family: 'Nunito', sans-serif;
 }
-
+body{
+    background-color: #f8f8e6;
+}
 header {
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
     grid-template-rows: auto;
     align-items: center;
-    background-color: #ffc87f;
+    background: linear-gradient(0deg, rgba(227, 255, 95, 0.9556197478991597) 0%, rgba(247, 199, 38, 0.9556197478991597) 53%);
     height: 7rem;
     justify-items: center;
     position: sticky;
     top: 0px;
     z-index: 100;
 }
-
 .contenedor_lista_nav ul {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 nav ul li {
     list-style: none;
     margin: 2rem;
     font-size: 2.5rem;
 }
-
 nav ul li a {
     text-decoration: none;
-    color:#924803;
+    color: #924803;
     border: solid 2px #f29429f0;
     border-radius: 30% 30%;
     padding: 0.7rem;
 }
-nav ul li a:hover{
+nav ul li a:hover {
     transition: all 0.8s;
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
     transform: translate3d(0, 2px, 0);
 }
-
 h1 {
     font-size: 2.5rem;
 }
-
 .contenedor_logo_titulo {
     display: flex;
     align-items: center;
 }
-
 .logo {
     height: 5rem;
     width: 5rem;
     margin: 0.5rem;
     border-radius: 2rem;
 }
-
 /* section bienvenida */
 #bienvenida p {
     font-size: 3rem;
@@ -69,19 +64,16 @@ h1 {
     padding: 1rem;
     text-align: center;
 }
-
 .img_local {
     width: 100%;
 }
-
 /* main productos */
-main h2 {
+main h2, .titulo_contacto {
     font-size: 3rem;
     text-align: center;
     margin: 5rem 0rem;
     font-size: 4rem;
 }
-
 .inputFiltrar {
     font-size: 2.3rem;
     border-radius: 15px;
@@ -89,18 +81,15 @@ main h2 {
     border: solid 2px #f7f7f7;
     box-shadow: 0px 0px 14px 3px rgba(186, 182, 186, 0.82);
 }
-
 .contenedor_filtro {
     margin: 0rem 0rem 5rem 3rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
-
 .contenedor_botones_filtro {
     padding-left: 2rem;
 }
-
 .botonesFiltro {
     align-self: center;
     background-color: #fff;
@@ -132,16 +121,13 @@ main h2 {
     -webkit-user-select: none;
     touch-action: manipulation;
 }
-
 .botonesFiltro:hover {
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
     transform: translate3d(0, 2px, 0);
 }
-
 .botonesFiltro:focus {
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
-
 /* tarjetas productos */
 #contenedorProductos .tarjetasProducto {
     width: max-content;
@@ -153,24 +139,20 @@ main h2 {
     transition: all 0.4s ease-in;
     box-shadow: 0.4rem 0.4rem 0.6rem #00000040;
 }
-
 #contenedorProductos .tarjetasProducto:hover {
     transform: translateY(-1.5rem);
     border: #f26229f0 0.2em solid;
     border-radius: 2.5rem 0 2.5rem 0;
 }
-
 #contenedorProductos .tarjetasProducto h3 {
     font-size: 3rem;
     text-align: center;
 }
-
 #contenedorProductos .tarjetasProducto p {
     font-size: 3rem;
     text-align: center;
     margin: 1rem 0rem;
 }
-
 #contenedorProductos .tarjetasProducto img {
     height: 25rem;
     width: 25rem;
@@ -179,7 +161,6 @@ main h2 {
     display: flex;
     justify-content: center;
 }
-
 #contenedorProductos {
     display: grid;
     grid-template-columns: repeat(3, auto);
@@ -197,9 +178,9 @@ main h2 {
     margin: 2rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-
 .botonAgregarCarrito,
-.botonEliminarCarrito, .btnAumRestCant {
+.botonEliminarCarrito,
+.btnAumRestCant {
     font-family: monospace;
     background-color: #f3f7fe;
     color: #d3a117;
@@ -210,14 +191,15 @@ main h2 {
     transition: .3s;
     cursor: pointer;
 }
-
-#contenedorProductos article .botonAgregarCarrito:hover, .botonEliminarCarrito:hover, .btnAumRestCant:hover {
+#contenedorProductos article .botonAgregarCarrito:hover,
+.botonEliminarCarrito:hover,
+.btnAumRestCant:hover {
     background-color: #f6b53b;
     box-shadow: 0 0 0 5px #f6603b5f;
     color: #fff;
 }
-
 /* carrito */
+/* btn carrito en nav */
 .boton_carrito {
     border: none;
     color: #e7801f;
@@ -227,36 +209,29 @@ main h2 {
     padding: 10px 20px;
     transition: all .3s;
 }
-
 .boton_carrito:hover {
     cursor: pointer;
     color: white;
     background-color: #e7801f;
 }
-
 .boton_carrito:focus {
     outline: none;
-}
-
+}/* termina btn carrito en nav */
 .ocultar {
     display: none;
 }
-
 #contenedorCarrito .itemCarrito h3 {
     font-size: 1.8rem;
     text-align: center;
 }
-
 #contenedorCarrito .itemCarrito p {
     font-size: 1.8rem;
     text-align: center;
 }
-
 #contenedorCarrito .itemCarrito .cantidadCarrito {
     font-size: 1.8rem;
     text-align: center;
 }
-
 #contenedorCarrito .parrafoCarVacio {
     font-size: 3rem;
     animation: scale-up-center 0.9s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate;
@@ -280,7 +255,6 @@ main h2 {
     align-items: center;
     justify-items: center;
 }
-
 #contenedorCarrito {
     width: 50rem;
     height: max-content;
@@ -294,24 +268,20 @@ main h2 {
     margin: 2rem;
     padding: 2rem;
 }
-
 .titulo_carrito {
     font-size: 3rem;
     text-align: center;
     margin-top: 2rem;
 }
-
 .carrito {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-
 .precioProducto {
     font-size: 2rem;
 }
-
 /* boton finalizar compra */
 .finalizarCompra {
     margin: 2rem;
@@ -319,8 +289,8 @@ main h2 {
     background: transparent;
     padding: 0;
     border: none;
+    cursor: pointer
 }
-
 .finalizarCompra {
     --border-right: 6px;
     --text-stroke-color: rgba(20, 20, 20, 0.6);
@@ -335,7 +305,6 @@ main h2 {
     color: transparent;
     -webkit-text-stroke: 1px var(--text-stroke-color);
 }
-
 .hover-text {
     position: absolute;
     box-sizing: border-box;
@@ -348,17 +317,216 @@ main h2 {
     transition: 0.5s;
     -webkit-text-stroke: 1px var(--animation-color);
 }
-
 .finalizarCompra:hover .hover-text {
     width: 100%;
     filter: drop-shadow(0 0 23px var(--animation-color))
-}
-
-.btnAumRestCant{
+}/* termina boton finalizar compra */
+.btnAumRestCant {
     width: 3rem;
     height: 3rem;
 }
-
+/* toastify */
+.toast-message {
+    font-size: 15px;
+}
+/* Sweet Alert */
+.pSweet {
+    font-size: 2rem;
+}
+.tituloSweet {
+    font-size: 3rem;
+}
+.footerSweet {
+    font-size: 2rem;
+}
+.btnConfirmar {
+    font-size: 1.5rem;
+}
+.tamañoAlertSweet {
+    height: 90% !important;
+    border-radius: 5% !important;
+    border: solid 3px rgba(248, 227, 133, 0.671) !important;
+}
+.pFormulario{
+    font-size: 2rem;
+}
+/* formulario */
+.titulo_contacto{
+    margin: 10rem 0 7rem 0rem;
+}
+.contenedor_formulario{
+    display: flex;
+    justify-content: center;
+}
+.singup {
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    font-weight: bold;
+    font-size: x-large;
+    margin-top: 1.5em;
+}
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 350px;
+    width: 40rem;
+    flex-direction: column;
+    gap: 5rem;
+    border-radius: 15px;
+    background: rgb(247, 199, 38);
+    background: linear-gradient(40deg, rgba(247, 199, 38, 1) 0%, rgba(249, 166, 232, 1) 100%);
+    padding: 5rem;
+    box-shadow: 16px 16px 32px #c8c8c8,
+        -16px -16px 32px #fefefe;
+}
+.inputBox{
+    position: relative;
+    width: 330px;
+}
+.inputBox input,
+.inputBox textarea {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: none;
+    color: #000;
+    font-size: 2rem;
+    background: transparent;
+    border-left: 2px solid #000;
+    border-bottom: 2px solid #000;
+    transition: 0.1s;
+    border-bottom-left-radius: 8px;
+}
+.inputBox label {
+    margin-top: 5px;
+    position: absolute;
+    left: 0;
+    transform: translateY(-4px);
+    margin-left: 10px;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 12px;
+    color: #000;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 3px;
+    border-radius: 8px;
+}
+.inputBox input:valid~label,
+.inputBox input:focus~label {
+    transform: translateX(156px) translateY(-15px);
+    font-size: 1em;
+    padding: 5px 10px;
+    background: #000;
+    letter-spacing: 0.2em;
+    color: #fff;
+    border: 2px;
+}
+.inputBox input:valid,
+.inputBox input:focus,
+.inputBox1 input:valid,
+.inputBox1 input:focus,
+.inputBox textarea:valid,
+.inputBox textarea:focus {
+    border: 2px solid #000;
+    border-radius: 8px;
+}
+textarea {
+    resize: none;
+    height: 20rem;
+    width: 20rem;
+}
+.button_formulario {
+    --border-color: linear-gradient(-45deg, #7e03aa, #ffae00, #00fffb);
+    --border-width: .125em;
+    --curve-size: .5em;
+    --blur: 30px;
+    --bg: #080312;
+    --color: #faf76a;
+    cursor: pointer;
+    margin: 3rem 0 0 2rem;
+    color: var(--color);
+    position: relative;
+    isolation: isolate;
+    display: inline-grid;
+    place-content: center;
+    padding: .5em 1.5em;
+    font-size: 15px;
+    border: 0;
+    text-transform: uppercase;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
+    clip-path: polygon(
+            /* Top-left */
+            0% var(--curve-size),
+            var(--curve-size) 0,
+            /* top-right */
+            100% 0,
+            100% calc(100% - var(--curve-size)),
+            /* bottom-right 1 */
+            calc(100% - var(--curve-size)) 100%,
+            /* bottom-right 2 */
+            0 100%);
+    transition: color 250ms;
+}
+.button_formulario::after,
+.button_formulario::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+}
+.button_formulario::before {
+    background: var(--border-color);
+    background-size: 300% 300%;
+    animation: move-bg7234 5s ease infinite;
+    z-index: -2;
+}
+@keyframes move-bg7234 {
+    0% {
+        background-position: 31% 0%
+    }
+    50% {
+        background-position: 70% 100%
+    }
+    100% {
+        background-position: 31% 0%
+    }
+}
+.button_formulario::after {
+    background: var(--bg);
+    z-index: -1;
+    clip-path: polygon(
+            /* Top-left */
+            var(--border-width) calc(var(--curve-size) + var(--border-width) * .5),
+            calc(var(--curve-size) + var(--border-width) * .5) var(--border-width),
+            /* top-right */
+            calc(100% - var(--border-width)) var(--border-width),
+            calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
+            /* bottom-right 1 */
+            calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) calc(100% - var(--border-width)),
+            /* bottom-right 2 */
+            var(--border-width) calc(100% - var(--border-width)));
+    transition: clip-path 500ms;
+}
+.button_formulario:where(:hover, :focus)::after {
+    clip-path: polygon(
+            /* Top-left */
+            calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+            calc(100% - var(--border-width)) var(--border-width),
+            /* top-right */
+            calc(100% - var(--border-width)) var(--border-width),
+            calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
+            /* bottom-right 1 */
+            calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) calc(100% - var(--border-width)),
+            /* bottom-right 2 */
+            calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width)));
+    transition: 200ms;
+}
+.button_formulario:where(:hover, :focus) {
+    color: #fff;
+}
 /* footer */
 footer {
     background-color: #ffc87f;
@@ -369,54 +537,27 @@ footer {
     padding-left: 1rem;
     height: 4rem
 }
-
 .red_social {
     height: 3rem;
     width: 3rem;
 }
-
 footer p {
     font-size: 2rem;
 }
-
 footer div a {
     margin: 1rem;
 }
-
 .lista_redes {
-    display:grid;
+    display: grid;
     grid-template-columns: 2fr 2fr;
     grid-template-rows: auto;
     column-gap: 2rem;
     list-style: none;
 }
-
 .content {
     width: 100%;
     height: 400px;
 }
-
 .footer {
     width: 100%;
-}
-.toast-message{
-    font-size: 15px;
-}
-/* Sweet Alert */
-.pSweet{
-    font-size: 2rem;
-}
-.tituloSweet{
-    font-size: 3rem;
-}
-.footerSweet{
-    font-size: 2rem;
-}
-.btnConfirmar{
-    font-size: 1.5rem;
-}
-.tamañoAlertSweet{
-    height: 90% !important;
-    border-radius: 5% !important;
-    border: solid 3px rgba(248, 227, 133, 0.671) !important;
 }
