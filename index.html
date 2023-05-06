@@ -11,14 +11,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     <!-- Icono Pestaña -->
-    <link rel="icon" type="image/png" sizes="16x16" href="./img/iconoPestaña.png">
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="./img/iconoPestaña.png">
     <!-- Iconos -->
-    <script src="https://kit.fontawesome.com/b32685bff2.js" crossorigin="anonymous"></script>
+    <!--     <script src="https://kit.fontawesome.com/b32685bff2.js" crossorigin="anonymous"></script> -->
+    <script src="/fontawesome/all.js"></script>
     <!-- toastify -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <!-- CSS -->
     <link rel="stylesheet" href="./estilo.css">
 </head>
+
 <body>
     <header>
         <div class="contenedor_logo_titulo">
@@ -79,19 +81,19 @@
                     <div class="card">
                         <div class="inputBox">
                             <input required type="text" id="nombre" autocomplete="off">
-                            <label for="nombre"><i class="fa-solid fa-user"></i> Nombre</label>
+                            <label for="nombre"><i class="fas fa-user"></i> Nombre</label>
                         </div>
                         <div class="inputBox">
                             <input required type="number" id="telefono" autocomplete="off">
-                            <label for="telefono"><i class="fa-solid fa-phone"></i> Teléfono</label>
+                            <label for="telefono"><i class="fas fa-phone"></i> Teléfono</label>
                         </div>
                         <div class="inputBox">
                             <input required type="email" id="mail" autocomplete="off">
-                            <label form="mail" class="user"><i class="fa-regular fa-envelope"></i> Email</label>
+                            <label form="mail" class="user"><i class="far fa-envelope"></i> Email</label>
                         </div>
                         <div class="inputBox">
                             <textarea required type="text" id="msg" placeholder="Ingrese su mensaje aquí"></textarea>
-                            <label for="msg"><i class="fa-regular fa-comment"></i>mensaje</label>
+                            <label for="msg"><i class="far fa-comment"></i> Mensaje</label>
                         </div>
                         <div class="row justify-content-center font_initial">
                             <button type="button" id="btnEnviarForm" class="button_formulario">Enviar</button>
@@ -105,8 +107,8 @@
     <div class="content"></div>
     <div class="footer"></div>
     <footer>
-        <p><i class="fa-solid fa-location-dot"></i> Ubicación: Manuel Ugarte 3148, CABA</p>
-        <p><i class="fa-sharp fa-solid fa-phone"></i> Teléfono: 11-1234-4321</p>
+        <p><i class="fas fa-map-marker-alt"></i> Ubicación: Manuel Ugarte 3148, CABA</p>
+        <p><i class="fas fa-phone"></i> Teléfono: 11-1234-4321</p>
         <div class="contenedor_redes">
             <ul class="lista_redes">
                 <li><img class="red_social" src="./img/Instagram.webp" alt="instagram"></li>
@@ -118,4 +120,5 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="./script.js"></script>
 </body>
+
 </html>
